@@ -10,7 +10,7 @@ OBJ_DIR = obj
 INCLUDES = -Ilibft/includes -Iincludes
 CFLAGS = -Wall -Wextra -Werror -MMD
 
-SRC = main.c
+SRC = main.c errors.c
 
 DEP = $(OBJ:.o=.d)
 

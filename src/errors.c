@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/12 14:12:50 by rrask            ###   ########.fr       */
+/*   Created: 2023/05/12 09:31:34 by rrask             #+#    #+#             */
+/*   Updated: 2023/05/12 14:31:14 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "libft.h"
+#include "push_swap.h"
 
-typedef struct s_arr_node
+void	invalid_error(char *err_msg)
 {
-	int					value;
-	int					rank;
-	struct s_arr_node	*next;
-}						t_arr_node;
+	ft_putendl_fd(err_msg, 2);
+	exit(0);
+}
 
-typedef struct s_stack
+char	**arg_string_validity(char *arg)
 {
-	t_arr_node			*head;
-	int					size;
-}						t_stack;
+	char	**nbrs;
+	int		o;
+	int		i;
 
-void					invalid_error(char *err_msg);
-char					**arg_string_validity(char *arg);
-#endif
+	o = 0;
+	i = 0;
+	nbrs = ft_split(arg, ' ');
+	while (nbrs[o])
+	{
+		i = 0;
+		ft_printf("%s\n", nbrs[o]);
+		while (nbrs[o][i] != '\0')
+		{
+			ft_printf("%c\n", nbrs[o][i]);
+			i++;
+		}
+		o++;
+	}
+	return (0);
+}
