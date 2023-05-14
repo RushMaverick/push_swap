@@ -1,33 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   argument_check.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/14 12:10:36 by rrask            ###   ########.fr       */
+/*   Created: 2023/05/14 12:11:08 by rrask             #+#    #+#             */
+/*   Updated: 2023/05/14 12:15:58 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	check_alphanum(char **nbrs)
 {
-	int	i;
+	int		o;
+	int		i;
 
-	i = 1;
-	if (argc < 2)
-		invalid_error("Error");
-	if (argc == 2)
-		arg_string_validity(argv[1]);
-	if (argc > 2)
+	o = 0;
+	i = 0;
+	while (nbrs[o])
 	{
-		while (i < argc)
+		i = 0;
+		while (nbrs[o][i] != '\0')
 		{
-			parse_arguments(argv[i]);
+			if (ft_isalpha(nbrs[o][i]))
+				invalid_error("Error");
 			i++;
 		}
+		o++;
 	}
+}
+
+void	parse_arguments(char *arg)
+{
+	while (*arg != '\0')
+	{
+		if (ft_isalpha(*arg))
+			invalid_error("Error");
+		arg++;
+	}
+}
+
+char	**arg_string_validity(char *arg)
+{
+	char	**nbrs;
+
+	nbrs = ft_split(arg, ' ');
+	check_alphanum(nbrs);
+	set_to_stack(nbrs);
 	return (0);
 }
