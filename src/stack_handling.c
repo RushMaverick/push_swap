@@ -1,49 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   errors.c                                           :+:      :+:    :+:   */
+/*   stack_handling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/12 09:31:34 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/14 11:17:21 by rrask            ###   ########.fr       */
+/*   Created: 2023/05/14 11:05:56 by rrask             #+#    #+#             */
+/*   Updated: 2023/05/14 11:11:53 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	invalid_error(char *err_msg)
+void	set_to_stack(char **nbrs)
 {
-	ft_putendl_fd(err_msg, 2);
-	exit(0);
-}
-
-char	**arg_string_validity(char *arg)
-{
-	char	**nbrs;
-
-	nbrs = ft_split(arg, ' ');
-	check_alphanum(nbrs);
-	set_to_stack(nbrs);
-	return (0);
-}
-
-void	check_alphanum(char **nbrs)
-{
-	int		o;
-	int		i;
-
-	o = 0;
-	i = 0;
-	while (nbrs[o])
-	{
-		i = 0;
-		while (nbrs[o][i] != '\0')
-		{
-			if (ft_isalpha(nbrs[o][i]))
-				invalid_error("Error");
-			i++;
-		}
-		o++;
-	}
+	(void)nbrs;
+	// t_arr_node	node;
+	// t_stack		stack_a;
+	// t_stack		stack_b;
 }

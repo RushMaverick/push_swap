@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/12 14:12:50 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/14 11:10:51 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,6 @@ typedef struct s_stack
 
 void					invalid_error(char *err_msg);
 char					**arg_string_validity(char *arg);
+void					check_alphanum(char **nbrs);
+void					set_to_stack(char **nbrs);
 #endif
