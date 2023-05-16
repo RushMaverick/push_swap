@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/14 12:10:36 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/16 10:33:54 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	main(int argc, char **argv)
 	{
 		while (i < argc)
 		{
+			if (ft_atoi(argv[i]) == -1 || ft_atoi(argv[i]) == 0)
+				invalid_error("Error");
 			parse_arguments(argv[i]);
 			i++;
 		}

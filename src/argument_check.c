@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:08 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/14 12:15:58 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/16 10:33:27 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,6 @@ void	check_alphanum(char **nbrs)
 	}
 }
 
-void	parse_arguments(char *arg)
-{
-	while (*arg != '\0')
-	{
-		if (ft_isalpha(*arg))
-			invalid_error("Error");
-		arg++;
-	}
-}
-
 char	**arg_string_validity(char *arg)
 {
 	char	**nbrs;
@@ -50,4 +40,14 @@ char	**arg_string_validity(char *arg)
 	check_alphanum(nbrs);
 	set_to_stack(nbrs);
 	return (0);
+}
+
+void	parse_arguments(char *arg)
+{
+	while (*arg != '\0')
+	{
+		if (ft_isalpha(*arg))
+			invalid_error("Error");
+		arg++;
+	}
 }
