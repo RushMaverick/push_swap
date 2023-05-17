@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   list_funcs.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/17 17:06:39 by rrask            ###   ########.fr       */
+/*   Created: 2023/05/17 09:36:17 by rrask             #+#    #+#             */
+/*   Updated: 2023/05/17 17:05:15 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_stack	*node_create(int nbr)
 {
-	int		i;
-	t_stack	*a;
-	// t_stack	*b;
-	i = 1;
-	if (argc < 2)
-		return (0);
-	if (argc == 2)
-		arg_string_validity(argv[1]);
-	if (argc > 2)
-	{
-		while (i < argc)
-		{
-			parse_arguments(argv[i]);
-			a = set_to_stack(argv[i]);
-			i++;
-		}
-	}
-	return (0);
+	t_stack	*new_node;
+
+	new_node = malloc(sizeof(t_stack));
+	new_node->data = nbr;
+	new_node->next = NULL;
+	return (new_node);
 }

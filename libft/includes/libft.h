@@ -6,18 +6,24 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 10:26:27 by rrask             #+#    #+#             */
-/*   Updated: 2023/04/20 14:57:01 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/16 16:13:46 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include "ft_printf.h"
+# include "get_next_line.h"
 # include <stdlib.h>
 # include <unistd.h>
-# include "get_next_line.h"
-# include "ft_printf.h"
 # define RAS_MAX 2147483647
 # define RAS_MIN -2147483648
+
+typedef struct s_list
+{
+	struct s_list	*next;
+	void			*content;
+}		t_list;
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -56,5 +62,6 @@ char	*ft_strjoinfree(char const *line, char const *buf);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+t_list	*ft_lstnew(void *content);
 
 #endif
