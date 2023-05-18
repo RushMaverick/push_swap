@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 09:36:17 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/17 17:05:15 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/18 12:58:27 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,3 +21,8 @@ t_stack	*node_create(int nbr)
 	new_node->next = NULL;
 	return (new_node);
 }
+
+// void	lstadd_front(t_stack **stack, t_stack *new)
+// {
+
+// }

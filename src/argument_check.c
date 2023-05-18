@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:08 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/17 16:26:00 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/18 14:15:16 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,26 @@
 void	parse_arguments(char *arg)
 {
 	int	i;
+	int	num;
 
 	i = 0;
 	while (arg[i] != '\0')
 	{
-		if (ft_isalpha(arg[i]))
+		if (!ft_isdigit(arg[i]) && arg[i] != ' ')
 			invalid_error("Error");
 		i++;
 	}
-	if (ft_atoi(arg) == -1
-		&& ft_strncmp(arg, "-1", ft_strlen(arg)))
+	num = ft_atoi(arg);
+	if (num == -1
+		&& ft_strncmp(arg, "-1", 2))
 		invalid_error("Error");
-	if (ft_atoi(arg) == 0
-		&& ft_strncmp(arg, "0", ft_strlen(arg)))
+	if (num == 0
+		&& ft_strncmp(arg, "0", 1))
 		invalid_error("Error");
+	//#push num to list
 }
 
-void	handle_multidimensional(char **nbrs)
+int	handle_multidimensional(char **nbrs)
 {
 	int	o;
 
@@ -41,13 +44,15 @@ void	handle_multidimensional(char **nbrs)
 		parse_arguments(nbrs[o]);
 		o++;
 	}
+	return (1);
 }
 
-char	**arg_string_validity(char *arg)
+int	arg_string_validity(char *arg)
 {
 	char	**nbrs;
 
 	nbrs = ft_split(arg, ' ');
-	handle_multidimensional(nbrs);
+	if (handle_multidimensional(nbrs))
+		return (1);
 	return (0);
 }
