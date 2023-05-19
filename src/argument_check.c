@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:08 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/18 14:15:16 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/19 13:40:01 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	parse_arguments(char *arg)
 	if (num == 0
 		&& ft_strncmp(arg, "0", 1))
 		invalid_error("Error");
-	//#push num to list
 }
 
 int	handle_multidimensional(char **nbrs)
