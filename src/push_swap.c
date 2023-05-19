@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/19 14:23:58 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/19 15:18:37 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,18 @@ int	main(int argc, char **argv)
 	while (argv[i])
 	{
 		if (arg_string_validity(argv[i]))
-			set_to_stack(&a, ft_atoi(argv[i]));
+		{
+			lstadd_back(&a, ft_atoi(argv[i]));
+			// ft_printf("%d\n", a->next->data);
+		}
 		else
 			invalid_error("Error");
 		i++;
+	}
+	while (a->next != NULL)
+	{
+		ft_printf("%d\n", a->data);
+		a = a->next;
 	}
 	return (0);
 }

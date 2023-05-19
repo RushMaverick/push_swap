@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/19 14:11:41 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/19 15:20:23 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ typedef struct s_stack
 
 void				invalid_error(char *err_msg);
 int					arg_string_validity(char *arg);
-int					handle_multidimensional(char **nbrs);
+void				handle_multidimensional(char **nbrs);
 void				parse_arguments(char *arg);
-void				set_to_stack(t_stack **stack, int nbr);
+// void				set_to_stack(t_stack **stack, int nbr);
 t_stack				*node_create(int nbr);
 void				lstadd_back(t_stack **stack, int nbr);
 #endif

@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:08 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/19 13:40:01 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/19 15:21:50 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	parse_arguments(char *arg)
 		invalid_error("Error");
 }
 
-int	handle_multidimensional(char **nbrs)
+void	handle_multidimensional(char **nbrs)
 {
 	int	o;
 
@@ -43,7 +43,6 @@ int	handle_multidimensional(char **nbrs)
 		parse_arguments(nbrs[o]);
 		o++;
 	}
-	return (1);
 }
 
 int	arg_string_validity(char *arg)
@@ -51,7 +50,6 @@ int	arg_string_validity(char *arg)
 	char	**nbrs;
 
 	nbrs = ft_split(arg, ' ');
-	if (handle_multidimensional(nbrs))
-		return (1);
-	return (0);
+	handle_multidimensional(nbrs);
+	return (1);
 }
