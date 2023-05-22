@@ -6,13 +6,13 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:08 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/19 15:21:50 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/22 11:29:10 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parse_arguments(char *arg)
+int	parse_arguments(char *arg)
 {
 	int	i;
 	int	num;
@@ -20,7 +20,7 @@ void	parse_arguments(char *arg)
 	i = 0;
 	while (arg[i] != '\0')
 	{
-		if (!ft_isdigit(arg[i]) && arg[i] != ' ')
+		if (!ft_isdigit_neg(arg[i]) && arg[i] != ' ')
 			invalid_error("Error");
 		i++;
 	}
@@ -31,25 +31,28 @@ void	parse_arguments(char *arg)
 	if (num == 0
 		&& ft_strncmp(arg, "0", 1))
 		invalid_error("Error");
+	return (0);
 }
 
-void	handle_multidimensional(char **nbrs)
+int	handle_multidimensional(char **nbrs)
 {
-	int	o;
+	int	i;
 
-	o = 0;
-	while (nbrs[o])
+	i = 0;
+	while (nbrs[i])
 	{
-		parse_arguments(nbrs[o]);
-		o++;
+		parse_arguments(nbrs[i]);
+		i++;
 	}
+	return (1);
 }
 
-int	arg_string_validity(char *arg)
+char	**arg_string_validity(char *arg)
 {
 	char	**nbrs;
 
 	nbrs = ft_split(arg, ' ');
-	handle_multidimensional(nbrs);
-	return (1);
+	if (handle_multidimensional(nbrs))
+		return (nbrs);
+	return (NULL);
 }

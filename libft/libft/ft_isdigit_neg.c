@@ -1,40 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit_neg.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/22 11:18:59 by rrask            ###   ########.fr       */
+/*   Created: 2023/05/22 11:28:47 by rrask             #+#    #+#             */
+/*   Updated: 2023/05/22 11:28:49 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int	ft_isdigit_neg(int c)
 {
-	t_stack	*a;
-	char	**nbrs;
-	int		i;
-	int		k;
-
-	a = NULL;
-	i = 1;
-	k = 0;
-	if (argc < 2)
-		return (0);
-	while (argv[i])
-	{
-		nbrs = arg_string_validity(argv[i]);
-		while (nbrs[k])
-		{
-			lstadd_back(&a, ft_atoi(nbrs[k]));
-			k++;
-		}
-		k = 0;
-		i++;
-	}
-	print_list(&a);
+	if ((c >= '0' && c <= '9') || c == '-')
+		return (1);
 	return (0);
 }
