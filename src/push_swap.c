@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/23 11:50:25 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/23 18:13:02 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 	a = NULL;
 	i = 1;
 	k = 0;
-	if (argc < 2)
+	if (argc < ARG_MIN)
 		return (0);
 	while (argv[i])
 	{
@@ -36,6 +36,8 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	check_duplicates(&a);
-	// sort_it();
+	freeing_array(nbrs);
+	freeing_stack(&a);
+	// sort_it(&a);
 	return (0);
 }
