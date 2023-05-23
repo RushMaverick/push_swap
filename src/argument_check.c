@@ -6,11 +6,33 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:08 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/22 11:29:10 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/23 12:05:24 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	check_duplicates(t_stack **a)
+{
+	int		i;
+	int		o;
+	t_stack	*curr;
+
+	i = 0;
+	o = 0;
+	curr = *a;
+	while (curr->next != NULL)
+	{
+		while ((*a)->next != NULL)
+		{
+			if (curr->data == (*a)->next->data)
+				invalid_error("DUpE found");
+			a = &(*a)->next;
+		}
+		curr = curr->next;
+		a = &curr;
+	}
+}
 
 int	parse_arguments(char *arg)
 {

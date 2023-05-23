@@ -18,9 +18,9 @@ ft_striteri.c			ft_split.c			ft_hexbig.c		ft_hexsmol.c		\
 ft_printf_utils1.c		ft_printf_utils2.c	ft_printf.c		ft_putchar_print.c	\
 ft_putnbr_print.c		ft_putstr_print.c	ft_putusnbr.c	ft_putvoid.c		\
 ft_strchrint.c			ft_strjoinfree.c	get_next_line.c	ft_strlenexclude.c	\
-ft_lstnew.c
+ft_lstnew.c				ft_isdigit_neg.c
 
-CFLAGS = -Wall -Wextra -Werror -MMD -g
+CFLAGS = -Wall -Wextra -Werror -MMD
 INCFLAGS = -Iincludes
 
 DEP = $(OBJ:.o=.d)
