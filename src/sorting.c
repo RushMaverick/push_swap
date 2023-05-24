@@ -1,40 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_handling.c                                   :+:      :+:    :+:   */
+/*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/14 11:05:56 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/24 10:29:51 by rrask            ###   ########.fr       */
+/*   Created: 2023/05/24 09:54:14 by rrask             #+#    #+#             */
+/*   Updated: 2023/05/24 10:32:01 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	freeing_array(char **nbrs)
+void	sort_it(t_stack **a)
 {
-	int		i;
-	int		o;
-
-	i = 0;
-	o = 0;
-	while (nbrs[i] != NULL)
+	if ((*a)->amount == 2)
 	{
-		free(nbrs[i]);
-		i++;
+		ft_printf("2 arguments");
 	}
-	free(nbrs);
-}
-
-void	freeing_stack(t_stack **a)
-{
-	t_stack	*temp;
-
-	while (*a != NULL)
+	if ((*a)->amount == 3)
 	{
-		temp = *a;
-		a = &(*a)->next;
-		free(temp);
+		ft_printf("3 arguments");
+	}
+	if ((*a)->amount > 3)
+	{
+		ft_printf("Might be good to use radix here.");
 	}
 }
