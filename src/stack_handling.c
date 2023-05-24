@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:05:56 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/24 10:29:51 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/24 18:00:28 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ void	freeing_stack(t_stack **a)
 {
 	t_stack	*temp;
 
-	while (*a != NULL)
+	temp = *a;
+	while (temp)
 	{
-		temp = *a;
-		a = &(*a)->next;
+		temp = temp->next;
 		free(temp);
 	}
+	free(temp);
 }

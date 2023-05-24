@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 09:36:17 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/24 10:07:20 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/24 17:07:30 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ t_stack	*node_create(int nbr)
 	t_stack	*new_node;
 
 	new_node = malloc(sizeof(t_stack));
+	if (!new_node)
+		return (NULL);
 	new_node->data = nbr;
 	new_node->next = NULL;
 	return (new_node);

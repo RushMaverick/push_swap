@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 09:31:34 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/14 12:13:12 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/24 16:58:53 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	invalid_error(char *err_msg)
 {
 	ft_putendl_fd(err_msg, 2);
-	exit(0);
+	exit(1);
 }

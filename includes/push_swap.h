@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/24 10:20:47 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/24 12:37:26 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ typedef struct s_stack
 	int				data;
 	int				index;
 	int				amount;
+	void			*head;
+	void			*tail;
 	struct s_stack	*next;
 }					t_stack;
 
