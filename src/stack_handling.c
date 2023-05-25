@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 11:05:56 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/24 18:00:28 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/25 09:49:57 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 void	freeing_array(char **nbrs)
 {
 	int		i;
-	int		o;
 
 	i = 0;
-	o = 0;
 	while (nbrs[i] != NULL)
 	{
 		free(nbrs[i]);
@@ -32,10 +30,10 @@ void	freeing_stack(t_stack **a)
 	t_stack	*temp;
 
 	temp = *a;
-	while (temp)
+	while (temp != NULL)
 	{
-		temp = temp->next;
+		*a = (*a)->next;
 		free(temp);
+		temp = *a;
 	}
-	free(temp);
 }
