@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/25 11:15:15 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/25 14:07:44 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,11 @@ void				lstadd_back(t_stack **stack, int nbr);
 void				check_duplicates(t_stack **a);
 void				freeing_array(char **nbrs);
 void				freeing_stack(t_stack **a);
-void				sort_it(t_stack **a);
+void				sort_it(t_stack **a, t_stack **b);
+void				sort_two(t_stack **a, t_stack **b);
 void				sa(t_stack **a);
 void				sb(t_stack **b);
 void				ss(t_stack **a, t_stack **b);
+// void				pa(t_stack **a, t_stack **b);
+// void				pb(t_stack **a, t_stack **b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/24 10:23:34 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/25 15:47:37 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,42 @@
 
 void	sa(t_stack **a)
 {
-	(void)a;
+	t_stack	*temp;
+
+	temp = (*a)->next;
+
+	(*a)->next = (*a)->next->next;
+	temp->next = (*a);
+	*a = temp;
 }
 
 void	sb(t_stack **b)
 {
-	(void)b;
+	t_stack	*temp;
+
+	temp = (*b)->next;
+
+	(*b)->next = (*b)->next->next;
+	temp->next = (*b);
+	*b = temp;
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
-	(void)a;
-	(void)b;
+	sa(a);
+	sb(b);
 }
+
+// void	pa(t_stack **a, t_stack **b)
+// {
+// 	void	((*a));
+// 	void	((*b));
+//  //Logic here
+// }
+
+// void	pb(t_stack **a, t_stack **b)
+// {
+// 	void	((*a));
+// 	void	((*b));
+//  //Logic here
+// }

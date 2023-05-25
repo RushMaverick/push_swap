@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:54:14 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/24 13:45:36 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/25 15:39:23 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,29 +16,19 @@ void	is_sorted(t_stack **a)
 {
 	while ((*a)->next != NULL)
 	{
-		if ((*a)->data < (*a)->next->data)
-			ft_printf("Sorted");
+		if ((*a)->data < (*a)->next->data && (*a)->next != 0)
+			ft_printf("Sorted\n");
 		a = &(*a)->next;
 	}
 }
 
-void	sort_it(t_stack **a)
+void	sort_it(t_stack **a, t_stack **b)
 {
-	// t_stack	**b;
-
-	// b = malloc(sizeof(a));
-	// if (!b)
-	// {
-	// 	freeing_stack(a);
-	// 	exit(0);
-	// }
-	(*a)->head = (*a);
-	is_sorted(a);
+	// is_sorted(a);
 	if ((*a)->amount == 2)
-		ft_printf("2 arguments");
-	if ((*a)->amount == 3)
+		sort_two(a, b);
+	else if ((*a)->amount == 3)
 		ft_printf("3 arguments");
-	if ((*a)->amount > 3)
+	else if ((*a)->amount > 3)
 		ft_printf("Might be good to use radix here.");
-	// freeing_stack(a);
 }

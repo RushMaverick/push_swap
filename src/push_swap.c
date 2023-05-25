@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/25 11:16:03 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/25 15:17:15 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,19 @@ static void	handle_args(t_stack **a, char **arg)
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
+	t_stack	*b;
 	int		i;
 
 	a = NULL;
+	b = NULL;
 	i = 1;
 	if (argc < ARG_MIN)
 		return (0);
 	handle_args(&a, argv);
 	check_duplicates(&a);
 	print_list(a);
-	// sort_it(&a);
+	sort_it(&a, &b);
+	print_list(a);
 	freeing_stack(&a);
 	return (0);
 }
