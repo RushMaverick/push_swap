@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/26 10:43:15 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/26 16:04:29 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,23 @@ void	swap(t_stack *head)
 	head = temp;
 }
 
-void	ss(t_stack **a, t_stack **b)
+void	ss(t_stack *a, t_stack *b)
 {
-	swap(&(*a));
-	swap(&(*b));
+	swap(a);
+	swap(b);
 }
 
-void	push(t_stack *head)
+void	rotate(t_stack *stack)
 {
-	t_stack	*n_head;
-	t_stack	*second;
-	t_stack	*next_to_last;
-	t_stack	*last;
+	t_stack	*temp;
+	t_stack	*head;
 
-	n_head = head;
-	while (n_head->next != NULL)
-		last = n_head->next;
+	temp = stack;
+	head = stack->next;
+	while (stack->next != NULL)
+		stack = stack->next;
+	stack->next = temp;
+	temp->next = NULL;
 }
 /*        t_node *current = *head;
         while (current->next != NULL)

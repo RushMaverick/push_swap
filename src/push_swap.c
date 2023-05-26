@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/25 15:17:15 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/26 16:17:03 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	handle_args(t_stack **a, char **arg)
 			invalid_error("Error");
 		while (nbrs[n])
 		{
-			lstadd_back(a, ft_atoi(nbrs[n]));
+			lstadd_back(&(*a), ft_atoi(nbrs[n]));
 			n++;
 		}
 		freeing_array(nbrs);

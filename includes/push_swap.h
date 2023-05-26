@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/26 10:22:35 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/26 16:14:21 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ typedef struct s_stack
 	int				index;
 	int				amount;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }					t_stack;
 
 void				invalid_error(char *err_msg);
@@ -34,9 +33,8 @@ void				check_duplicates(t_stack **a);
 void				freeing_array(char **nbrs);
 void				freeing_stack(t_stack **a);
 t_stack				**sort_it(t_stack **a, t_stack **b);
-t_stack				**mini_sort(t_stack **head);
+void				mini_sort(t_stack **head);
 void				swap(t_stack *head);
-void				ss(t_stack **a, t_stack **b);
-// void				pa(t_stack **a, t_stack **b);
-// void				pb(t_stack **a, t_stack **b);
+void				ss(t_stack *a, t_stack *b);
+void				rotate(t_stack *stack);
 #endif

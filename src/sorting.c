@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:54:14 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/26 10:10:42 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/26 16:18:02 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_stack	**sort_it(t_stack **a, t_stack **b)
 	// is_sorted(a);
 	(void) b;
 	if ((*a)->amount == 2 || (*a)->amount == 3)
-		a = mini_sort(a);
+		mini_sort(a);
 	else if ((*a)->amount > 3)
 		ft_printf("Might be good to use radix here.");
 	return (a);

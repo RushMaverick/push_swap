@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:08 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/25 11:12:45 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/26 16:05:15 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	check_duplicates(t_stack **a)
 		{
 			if (curr->data == (*a)->next->data)
 				invalid_error("Error");
-			a = &(*a)->next;
+			*a = (*a)->next;
 		}
 		curr = curr->next;
-		a = &curr;
+		*a = curr;
 	}
 }
 
