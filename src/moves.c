@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/25 15:47:37 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/26 10:43:15 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,40 +22,42 @@
 // pb (push b): Take the first element at the top of a and put it at the top of b.
 // Do nothing if a is empty.
 
-void	sa(t_stack **a)
+void	swap(t_stack *head)
 {
 	t_stack	*temp;
 
-	temp = (*a)->next;
-
-	(*a)->next = (*a)->next->next;
-	temp->next = (*a);
-	*a = temp;
-}
-
-void	sb(t_stack **b)
-{
-	t_stack	*temp;
-
-	temp = (*b)->next;
-
-	(*b)->next = (*b)->next->next;
-	temp->next = (*b);
-	*b = temp;
+	temp = head->next;
+	head->next = head->next->next;
+	temp->next = head;
+	head = temp;
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
-	sa(a);
-	sb(b);
+	swap(&(*a));
+	swap(&(*b));
 }
 
-// void	pa(t_stack **a, t_stack **b)
-// {
-// 	void	((*a));
-// 	void	((*b));
-//  //Logic here
-// }
+void	push(t_stack *head)
+{
+	t_stack	*n_head;
+	t_stack	*second;
+	t_stack	*next_to_last;
+	t_stack	*last;
+
+	n_head = head;
+	while (n_head->next != NULL)
+		last = n_head->next;
+}
+/*        t_node *current = *head;
+        while (current->next != NULL)
+        {
+            current = current->next;
+        }
+
+        current->next = new_node;
+        new_node->prev = current;
+		*/
 
 // void	pb(t_stack **a, t_stack **b)
 // {
