@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:30:09 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/27 07:39:57 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/27 10:36:44 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	mini_sort(t_stack **head)
 	if ((*head)->amount == 2)
 	{
 		if ((*head)->data > next->data)
-			swap(*head);
+			swap(head);
 		else
 			return ;
 		return ;

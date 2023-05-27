@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/27 00:35:10 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/27 10:36:33 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,26 @@
 // pb (push b): Take the first element at the top of a and put it at the top of b.
 // Do nothing if a is empty.
 
-void	swap(t_stack *head)
+void    swap(t_stack **head)
 {
-	t_stack	*temp;
+    t_stack    *first_node;
+    t_stack    *second_node;
+    t_stack    *third_node;
 
-	temp = head->next;
-	head->next = head->next->next;
-	temp->next = head;
-	head = temp;
+    if (*head == NULL || (*head)->next == NULL)
+        return ;
+    first_node = *head;
+    second_node = (*head)->next;
+    third_node = (*head)->next->next;
+    second_node->next = first_node;
+    first_node->next = third_node;
+    *head = second_node;
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
-	swap(a);
-	swap(b);
+	swap(&a);
+	swap(&b);
 }
 
 void	rotate(t_stack *stack)

@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/27 07:53:17 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/27 10:36:14 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void				freeing_array(char **nbrs);
 void				freeing_stack(t_stack **a);
 t_stack				**sort_it(t_stack **a, t_stack **b);
 void				mini_sort(t_stack **head);
-void				swap(t_stack *head);
+void				swap(t_stack **head);
 void				ss(t_stack *a, t_stack *b);
 void				rotate(t_stack *stack);
 #endif
