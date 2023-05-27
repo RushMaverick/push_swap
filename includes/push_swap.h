@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/26 16:14:21 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/27 07:53:17 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int					handle_multidimensional(char **nbrs);
 int					parse_arguments(char *arg);
 t_stack				*node_create(int nbr);
 void				lstadd_back(t_stack **stack, int nbr);
-void				check_duplicates(t_stack **a);
+void				check_duplicates(t_stack *a);
 void				freeing_array(char **nbrs);
 void				freeing_stack(t_stack **a);
 t_stack				**sort_it(t_stack **a, t_stack **b);

@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/26 16:17:03 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/27 07:52:56 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 static void	print_list(t_stack *node)
 {
-	t_stack	*temp;
-
-	temp = node;
 	while (node != NULL)
 	{
 		ft_printf("%d -> ", node->data);
@@ -44,13 +41,13 @@ static void	handle_args(t_stack **a, char **arg)
 		nbrs = arg_string_validity(arg[i]);
 		if (!nbrs)
 			invalid_error("Error");
+		n = 0;
 		while (nbrs[n])
 		{
 			lstadd_back(&(*a), ft_atoi(nbrs[n]));
 			n++;
 		}
 		freeing_array(nbrs);
-		n = 0;
 		i++;
 	}
 }
@@ -59,15 +56,13 @@ int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
-	int		i;
 
 	a = NULL;
 	b = NULL;
-	i = 1;
 	if (argc < ARG_MIN)
 		return (0);
 	handle_args(&a, argv);
-	check_duplicates(&a);
+	check_duplicates(a);
 	print_list(a);
 	sort_it(&a, &b);
 	print_list(a);

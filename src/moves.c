@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/26 16:04:29 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/27 00:35:10 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,8 @@ void	ss(t_stack *a, t_stack *b)
 void	rotate(t_stack *stack)
 {
 	t_stack	*temp;
-	t_stack	*head;
 
 	temp = stack;
-	head = stack->next;
 	while (stack->next != NULL)
 		stack = stack->next;
 	stack->next = temp;
