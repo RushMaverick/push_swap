@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/29 12:23:03 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/29 16:04:14 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void				swap(t_stack **head);
 void				ss(t_stack *a, t_stack *b);
 void				rotate(t_stack **head);
 void				rev_rotate(t_stack **head);
+void    			push(t_stack **src, t_stack **dst);
 t_stack				*last_node(t_stack *head);
 t_stack 			*next_to_last_node(t_stack *head);
 #endif
