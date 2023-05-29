@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/27 10:36:33 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/29 12:23:41 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,24 @@
 // Do nothing if b is empty.
 // pb (push b): Take the first element at the top of a and put it at the top of b.
 // Do nothing if a is empty.
+
+t_stack *last_node(t_stack *head)
+{
+    if (!head)
+        return (NULL);
+    while (head->next != NULL)
+        head = head->next;
+    return (head);
+}
+
+t_stack *next_to_last_node(t_stack *head)
+{
+    if (!head)
+        return (NULL);
+    while (head->next->next && head->next->next != NULL)
+        head = head->next;
+    return (head);
+}
 
 void    swap(t_stack **head)
 {
@@ -44,29 +62,32 @@ void	ss(t_stack *a, t_stack *b)
 	swap(&b);
 }
 
-void	rotate(t_stack *stack)
+void	rotate(t_stack **head) //The first element becomes the last one.
 {
-	t_stack	*temp;
+	t_stack	*node;
+	t_stack	*node_two;
 
-	temp = stack;
-	while (stack->next != NULL)
-		stack = stack->next;
-	stack->next = temp;
-	temp->next = NULL;
+    if (*head == NULL)
+        return ;
+
+    node = *head;
+	node_two = (*head)->next;
+	*head = last_node(*head);
+	(*head)->next = node;
+	node->next = NULL;
+	*head = node_two;
 }
-/*        t_node *current = *head;
-        while (current->next != NULL)
-        {
-            current = current->next;
-        }
 
-        current->next = new_node;
-        new_node->prev = current;
-		*/
+void	rev_rotate(t_stack **head) //The last element becomes the first one.
+{
+	t_stack	*node;
+	t_stack	*node_three;
 
-// void	pb(t_stack **a, t_stack **b)
-// {
-// 	void	((*a));
-// 	void	((*b));
-//  //Logic here
-// }
+    if (*head == NULL)
+        return ;
+    node = last_node(*head);
+    node_three = next_to_last_node(*head);
+    node->next = *head;
+    node_three->next = NULL;
+    *head = node;
+}
