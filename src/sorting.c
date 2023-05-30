@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:54:14 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/30 17:22:54 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/30 18:04:25 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ t_stack	**sort_it(t_stack **a, t_stack **b)
 	{
 		if ((*a)->data > (*a)->next->data)
 		{
-			// ft_printf("%d\n", (*a)->amount);
-			// ft_printf("%d\n", (*a)->data);
-			// ft_printf("%d\n", (*a)->next->data);
 			swap(a);
 			ft_putstr_fd("sa\n", 1);
 		}

@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/30 17:12:21 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/30 19:59:21 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,12 @@ void    push(t_stack **src, t_stack **dst)
     
     if (!(*src))
         return ;
+    temp = *src;
+    // ft_printf("%d\n", temp->next->data);
+    *src = temp->next;
+    if (!*dst)
+        temp->next = NULL;
     else
-        temp = (*src);
-        *src = (*src)->next;
-        *dst = temp;
-        (*dst)->next = NULL;
+        temp->next = *src;
+    *dst = temp;
 }
