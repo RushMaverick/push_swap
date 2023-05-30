@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/30 09:42:15 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/30 10:19:03 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ int	main(int argc, char **argv)
 	print_list(a);
 	print_list(b);
 	freeing_stack(&a);
+	freeing_stack(&b);
 	return (0);
 }

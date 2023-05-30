@@ -6,14 +6,15 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:30:09 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/29 12:14:15 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/30 10:33:31 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	mini_sort(t_stack **head)
+void	mini_sort(t_stack **head, t_stack **head_two)
 {
+	(void) head_two;
 	t_stack	*next;
 
 	next = (*head)->next;
