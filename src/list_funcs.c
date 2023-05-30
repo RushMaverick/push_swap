@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 09:36:17 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/27 07:44:14 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/30 14:53:10 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,25 @@ t_stack	*node_create(int nbr)
 	return (new_node);
 }
 
-void	lstadd_back(t_stack **stack, int nbr)
+void    lstadd_back(t_stack **stack, int nbr)
 {
-	t_stack	*curr;
+    t_stack    *curr;
 
-	if ((*stack) == NULL)
-	{
-		(*stack) = node_create(nbr);
-		(*stack)->amount = 0;
-		(*stack)->amount++;
-		return ;
-	}
-	curr = (*stack);
-	while (curr->next != NULL)
-		curr = curr->next;
-	curr->next = node_create(nbr);
-	(*stack)->amount++;
+    if ((*stack) == NULL)
+    {
+        (*stack) = node_create(nbr);
+        (*stack)->amount = 1;
+        return ;
+    }
+    curr = (*stack);
+    while (curr->next != NULL)
+        curr = curr->next;
+    curr->next = node_create(nbr);
+    (*stack)->amount++;
+    curr = (*stack);
+    while (curr)
+    {
+        curr->amount = (*stack)->amount;
+        curr = curr->next;
+    }
 }

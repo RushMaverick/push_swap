@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/30 10:19:03 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/30 14:53:37 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	handle_args(t_stack **a, char **arg)
 	n = 0;
 	while (arg[i])
 	{
-		nbrs = arg_string_validity(arg[i]);
+		nbrs = NULL;
 		if (!nbrs)
 			invalid_error("Error");
 		n = 0;
