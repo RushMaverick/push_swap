@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/29 16:08:14 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/30 09:42:46 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void    push(t_stack **src, t_stack **dst)
 {
     t_stack *temp;
     
-    if (!dst)
+    if (!(*src))
         return ;
     else
         temp = (*src);
