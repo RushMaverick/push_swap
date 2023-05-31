@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/31 08:55:57 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/31 09:27:11 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_stack *next_to_last_node(t_stack *head)
     return (head);
 }
 
-void    swap(t_stack **head)
+void    swap(t_stack **head, char *str)
 {
     t_stack    *first_node;
     t_stack    *second_node;
@@ -44,15 +44,16 @@ void    swap(t_stack **head)
     second_node->next = first_node;
     first_node->next = third_node;
     *head = second_node;
+    ft_putstr_fd(str, 1);
 }
 
 void	ss(t_stack *a, t_stack *b)
 {
-	swap(&a);
-	swap(&b);
+	swap(&a, "sa");
+	swap(&b, "sb");
 }
 
-void    push(t_stack **src, t_stack **dst) //If dst == stack a, we need to pop out the value to lose the link.
+void    push(t_stack **src, t_stack **dst, char *str) //If dst == stack a, we need to pop out the value to lose the link.
 {
     t_stack *temp;
     
@@ -62,4 +63,5 @@ void    push(t_stack **src, t_stack **dst) //If dst == stack a, we need to pop o
     (*src)->next = *dst;
     *dst = *src;
     *src = temp;
+    ft_putstr_fd(str, 1);
 }
