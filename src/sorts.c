@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:30:09 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/31 17:00:25 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/31 17:35:22 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,24 @@ void	mini_sort(t_stack **head_a, t_stack **head_b)
 	(void)head_b;
 	if (is_sorted(head_a) == 0)
 		return ;
-	if (third->data > first->data && third->data > second->data)
+	else if (third->data > first->data && third->data > second->data)
 	{
 		swap(head_a, "sa\n");
 		return ;
 	}
-     if (first->data > second->data && first->data > third->data)
+    else if (first->data > second->data && first->data > third->data)
     {
         rotate(head_a, "ra\n");
         if (first->data > second->data)
             swap(head_a, "sa\n");
         return ;
     }
-	if (second->data > first->data && second->data > third->data)
+	else if (second->data > first->data && second->data > third->data)
     {
 		rev_rotate(head_a, "rra\n");
-        if (first->data > second->data)
+		if (is_sorted(head_a) == 0)
+			return ;
+        if (first->data < second->data)
             swap(head_a, "sa\n");
         return ;
     }
