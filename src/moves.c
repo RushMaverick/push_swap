@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/31 09:27:11 by rrask            ###   ########.fr       */
+/*   Updated: 2023/05/31 15:25:04 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,26 @@
 
 t_stack *last_node(t_stack *head)
 {
-    if (!head)
+    t_stack *temp;
+
+    temp = head;
+    if (!temp)
         return (NULL);
-    while (head->next != NULL)
-        head = head->next;
-    return (head);
+    while (temp->next != NULL)
+        temp = temp->next;
+    return (temp);
 }
 
 t_stack *next_to_last_node(t_stack *head)
 {
-    if (!head)
+    t_stack *temp;
+
+    temp = head;
+    if (!temp)
         return (NULL);
-    while (head->next->next && head->next->next != NULL)
-        head = head->next;
-    return (head);
+    while (temp->next->next && temp->next->next != NULL)
+        temp = temp->next;
+    return (temp);
 }
 
 void    swap(t_stack **head, char *str)
@@ -49,8 +55,8 @@ void    swap(t_stack **head, char *str)
 
 void	ss(t_stack *a, t_stack *b)
 {
-	swap(&a, "sa");
-	swap(&b, "sb");
+	swap(&a, "sa\n");
+	swap(&b, "sb\n");
 }
 
 void    push(t_stack **src, t_stack **dst, char *str) //If dst == stack a, we need to pop out the value to lose the link.
