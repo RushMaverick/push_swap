@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:47:32 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/30 19:11:48 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/01 13:40:57 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,10 @@ static void	print_list(t_stack *node)
 {
 	while (node != NULL)
 	{
-		ft_printf("%d -> ", node->data);
+		ft_printf("%d -> ", node->index);
 		node = node->next;
 	}
 	ft_printf("NULL \n\n");
-	// while (temp != NULL)
-	// {
-	//     printf("%d -> ", temp->index);
-	//     temp = temp->next;
-	// }
-	// printf("NULL \n");
 }
 
 static void	handle_args(t_stack **a, char **arg)
@@ -45,6 +39,7 @@ static void	handle_args(t_stack **a, char **arg)
 		while (nbrs[n])
 		{
 			lstadd_back(&(*a), ft_atoi(nbrs[n]));
+			indexing(&(*a));
 			n++;
 		}
 		freeing_array(nbrs);
@@ -64,10 +59,10 @@ int	main(int argc, char **argv)
 	handle_args(&a, argv);
 	check_duplicates(a);
 	print_list(a);
-	print_list(b);
+	// print_list(b);
 	sort_it(&a, &b);
 	print_list(a);
-	print_list(b);
+	// print_list(b);
 	freeing_stack(&a);
 	freeing_stack(&b);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:30:09 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/31 17:35:22 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/01 11:56:34 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	is_sorted(t_stack **head)
 	t_stack *temp;
 
 	temp = *head;
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		if (temp->data > temp->next->data)
 			return (1);
@@ -26,7 +26,7 @@ static int	is_sorted(t_stack **head)
 	return (0);
 }
 
-void	mini_sort(t_stack **head_a, t_stack **head_b)
+void	mini_sort(t_stack **head_a)
 {	
 	t_stack *first;
 	t_stack *second;
@@ -36,7 +36,6 @@ void	mini_sort(t_stack **head_a, t_stack **head_b)
 	second = next_to_last_node(*head_a);
 	third = last_node(*head_a);
 	
-	(void)head_b;
 	if (is_sorted(head_a) == 0)
 		return ;
 	else if (third->data > first->data && third->data > second->data)
