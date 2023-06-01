@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 10:35:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/01 13:49:20 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/01 15:18:46 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ static	void set_index(t_stack **temp, t_stack **head, t_stack **end, t_stack **s
 	{
 		if ((*end)->index <= (*temp)->index)
 			(*temp)->index++;
-		temp = &(*temp)->next;
+		*temp = (*temp)->next;
 	}
-	ft_printf("TEMP INDEX %d\n", (*temp)->index);
-	ft_printf("END INDEX %d\n", (*end)->index);
 }
 
 static	void set_smallest(t_stack **top, t_stack **end, t_stack **smallest)
@@ -36,30 +34,37 @@ static	void set_smallest(t_stack **top, t_stack **end, t_stack **smallest)
 			if ((*top)->data < (*smallest)->data)
 				*smallest = *top;
 		}
-		*smallest = *top;
+		else
+			*smallest = *top;
 	}
 	*top = (*top)->next;
 }
 
 void	indexing(t_stack **head)
 {
+	int		place;
 	t_stack *end;
 	t_stack *temp;
 	t_stack *smallest;
+	t_stack *count;
 
 	smallest = NULL;
-	if (!(*head)->index)
-	{
-		(*head)->index = 1;
-		return ;
-	}
 	end = last_node(*head);
 	temp = *head;
+	count = *head;
+	place = 0;
+	while (count->next != NULL)
+	{
+		count = count->next;
+		place++;
+	}
+	if (!(*head)->index)
+		(*head)->index = place;
 	while (temp->next != NULL)
 	{
 		set_smallest(&temp, &end, &smallest);
-		if ((end)->index <= (temp)->index)
-			(temp)->index++;
+		if (temp->next == NULL)
+			temp->index = place;
 	}
 	set_index(&temp, head, &end, &smallest);
 }
