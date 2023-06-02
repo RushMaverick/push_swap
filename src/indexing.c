@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 10:35:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/01 15:18:46 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/02 10:50:35 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	indexing(t_stack **head)
 	end = last_node(*head);
 	temp = *head;
 	count = *head;
-	place = 0;
+	place = 1;
 	while (count->next != NULL)
 	{
 		count = count->next;

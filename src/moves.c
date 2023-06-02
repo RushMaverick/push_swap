@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/31 15:25:04 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/02 09:16:17 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ss(t_stack *a, t_stack *b)
 	swap(&b, "sb\n");
 }
 
-void    push(t_stack **src, t_stack **dst, char *str) //If dst == stack a, we need to pop out the value to lose the link.
+void    push(t_stack **src, t_stack **dst, char *str)
 {
     t_stack *temp;
     
