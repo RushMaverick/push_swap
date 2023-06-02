@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:30:09 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/02 11:19:56 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/02 15:02:02 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,32 @@ static int	is_sorted(t_stack **head)
 	return (0);
 }
 
-static	void find_indexes(t_stack *smallest, t_stack *second_smallest, t_stack **top)
-{
-	t_stack *temp;
-	t_stack *curr_first;
-	t_stack *curr_second;
+// static	void find_indexes(t_stack **smallest, t_stack **second_smallest, t_stack **top)
+// {
+// 	t_stack *temp;
 	
-	temp = *top;
-	curr_first = NULL;
-	curr_second = NULL;
-	while (temp->next != NULL)
-	{
-		if (curr_first == NULL)
-		{
-			curr_first = temp;
-			curr_second = temp;
-		}
-		if (temp->index < curr_first->index)
-			curr_first = temp;
-		if (temp->index != curr_first->index && temp->index < curr_second->index)
-			curr_second = temp;
-		temp = temp->next;
-	}
-	smallest = curr_first;
-	second_smallest = curr_second;
-}
+// 	temp = *top;
+// 	while (temp != NULL)
+//     {
+//         if (temp->index == 1)
+// 		{
+//             *smallest = temp;
+// 			while ((*top)->index != (*smallest)->index)
+// 			{
+// 				if ((*top)->index == (*smallest)->index)
+// 					push()
+// 				rotate(top, "ra\n");
+// 			}
+// 		}
+//         if (temp->index == 2)
+// 		{
+//            *second_smallest = temp;
+// 			while ((*top)->index != (*second_smallest)->index)
+// 				rotate(top, "ra\n");
+// 		}
+//         temp = temp->next;
+//     }
+// }
 
 static void	sort_three(t_stack **head_a, t_stack *first, t_stack *second)
 {
@@ -84,15 +85,23 @@ static void	sort_three(t_stack **head_a, t_stack *first, t_stack *second)
 
 static	void sort_five(t_stack **head_a, t_stack **head_b)
 {
-	(void)head_b;
 	t_stack *smallest;
 	t_stack *second_smallest;
+	t_stack *temp;
 	
 	smallest = NULL;
 	second_smallest = NULL;
-	find_indexes(smallest, second_smallest, head_a);
-	ft_printf("%d\n", smallest->index);
-	ft_printf("%d\n", second_smallest->index);
+	temp = *head_a;
+	// find_indexes(&smallest, &second_smallest, head_a);
+	while ((*head_a)->index != 1)
+		rotate(head_a, "ra\n");
+	push(head_a, head_b, "pb\n");
+	while ((*head_a)->index != 2)
+		rotate(head_a, "ra\n");
+	push(head_a, head_b, "pb\n");
+	// sort_three()
+	push(head_b, head_a, "pa\n");
+	push(head_b, head_a, "pa\n");
 }
 
 void	mini_sort(t_stack **head_a, t_stack **head_b)

@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/02 09:16:17 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/02 14:52:39 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,23 @@ void	ss(t_stack *a, t_stack *b)
 void    push(t_stack **src, t_stack **dst, char *str)
 {
     t_stack *temp;
+    // int     first;
     
     if (!(*src))
         return ;
     temp = (*src)->next;
-    (*src)->next = *dst;
-    *dst = *src;
-    *src = temp;
+    (*src)->next = NULL;
+    if (dst == NULL)
+    {
+        dst = src;
+        (*dst)->next = NULL;
+        (*src) = temp;
+    }
+    else
+    {
+        (*src)->next = (*dst);
+        (*dst) = (*src);
+        (*src) = temp;
+    }
     ft_putstr_fd(str, 1);
 }

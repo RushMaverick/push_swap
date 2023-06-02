@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:54:14 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/02 10:24:29 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/02 14:47:54 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ void	is_sorted(t_stack **a)
 
 t_stack	**sort_it(t_stack **a, t_stack **b)
 {
-	b = NULL;
 	if ((*a)->amount == 2)
 	{
-		if ((*a)->data > (*a)->next->data)
+		if ((*a)->index > (*a)->next->index)
 			swap(a, "sa");
 		return (a);
 	}

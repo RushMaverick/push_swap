@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 10:28:06 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/31 17:27:53 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/02 14:56:59 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void    rotate(t_stack **head, char *str) //The first element becomes the last o
     t_stack    *node;
     t_stack    *temp;
 
-    if (*head == NULL)
+    if ((*head) == NULL)
         return ;
 	node = *head;
-	*head = node->next;
+	(*head) = node->next;
 	temp = last_node(*head);
 	temp->next = node;
 	node->next = NULL;
