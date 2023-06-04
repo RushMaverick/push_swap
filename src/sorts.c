@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:30:09 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/02 15:43:57 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/04 18:18:25 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	is_sorted(t_stack **head)
 	temp = *head;
 	while (temp->next != NULL)
 	{
-		if (temp->data > temp->next->data)
+		if (temp->index > temp->next->index)
 			return (1);
 		temp = temp->next;
 	}
@@ -56,7 +56,7 @@ static void	sort_three(t_stack **head_a)
 		rev_rotate(head_a, "rra\n");
 		if (is_sorted(head_a) == 0)
 			return ;
-		if (first->index > second->index)
+		if (first->index > second->index || first->index < second->index)
 			swap(head_a, "sa\n");
 		return ;
 	}
@@ -64,13 +64,15 @@ static void	sort_three(t_stack **head_a)
 
 static	void sort_four_five(t_stack **head_a, t_stack **head_b)
 {
-	t_stack *smallest;
-	t_stack *second_smallest;
-	t_stack *temp;
+	// t_stack *smallest;
+	// t_stack *second_smallest;
+	// t_stack *temp;
 	
-	smallest = NULL;
-	second_smallest = NULL;
-	temp = *head_a;
+	// smallest = NULL;
+	// second_smallest = NULL;
+	// temp = *head_a;
+	if (is_sorted(head_a) == 0)
+		return ;
 	while ((*head_a)->index != 1)
 		rotate(head_a, "ra\n");
 	push(head_a, head_b, "pb\n");
