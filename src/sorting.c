@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:54:14 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/05 11:16:31 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 11:54:59 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,7 @@ static void	my_rad_sort(t_stack **stack_a, t_stack **stack_b)
 			++j;
 		}
 		while (*stack_b)
-		{
-			// num = (*stack_b)->index;
-			// if (((num >> i) & 1) == 1)
 			push(stack_b, stack_a, "pa\n");
-			// else
-			// rotate(stack_b, "rb\n");
-		}
 		i++;
 	}
 }
@@ -76,6 +70,10 @@ t_stack	**sort_it(t_stack **a, t_stack **b)
 	if ((*a)->amount == 3 || (*a)->amount == 4 || (*a)->amount == 5)
 		mini_sort(a, b);
 	else if ((*a)->amount > 5)
+	{
+		if (is_sorted(a) == 0)
+			return (a);
 		my_rad_sort(a, b);
+	}
 	return (a);
 }
