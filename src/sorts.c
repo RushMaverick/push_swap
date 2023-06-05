@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:30:09 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/05 10:15:03 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:13:32 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,36 @@ static int	how_many_moves(t_stack **a, int index)
 	}
 	return (moves);
 }
+void	sort_three_case_one(t_stack **head_a)
+{
+	t_stack	*first;
+	t_stack	*second;
+
+	first = (*head_a);
+	second = next_to_last_node(*head_a);
+	
+	rotate(head_a, "ra\n");
+	if (is_sorted(head_a) == 0)
+		return ;
+	if (first->index > second->index)
+		swap(head_a, "sa\n");
+	return ;
+}
+
+void	sort_three_case_two(t_stack **head_a)
+{
+	t_stack	*first;
+	t_stack	*second;
+
+	first = (*head_a);
+	second = next_to_last_node(*head_a);
+	rev_rotate(head_a, "rra\n");
+	if (is_sorted(head_a) == 0)
+		return ;
+	if (first->index > second->index || first->index < second->index)
+		swap(head_a, "sa\n");
+	return ;
+}
 
 static void	sort_three(t_stack **head_a)
 {
@@ -44,23 +74,9 @@ static void	sort_three(t_stack **head_a)
 		return ;
 	}
 	else if (first->index > second->index && first->index > third->index)
-	{
-		rotate(head_a, "ra\n");
-		if (is_sorted(head_a) == 0)
-			return ;
-		if (first->index > second->index)
-			swap(head_a, "sa\n");
-		return ;
-	}
+		sort_three_case_one(head_a);
 	else if (second->index > first->index && second->index > third->index)
-	{
-		rev_rotate(head_a, "rra\n");
-		if (is_sorted(head_a) == 0)
-			return ;
-		if (first->index > second->index || first->index < second->index)
-			swap(head_a, "sa\n");
-		return ;
-	}
+		sort_three_case_two(head_a);
 }
 
 static void	sort_four_five(t_stack **head_a, t_stack **head_b)

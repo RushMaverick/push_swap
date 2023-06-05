@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:54:14 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/05 11:54:59 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 13:48:27 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,10 @@ int	is_sorted(t_stack **head)
 static void	my_rad_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	max_num;
-	int	num;
 	int	max_bits;
 	int	size;
 	int	i;
-	int	j;
+
 
 	size = (*stack_a)->amount;
 	max_num = size - 1;
@@ -43,6 +42,15 @@ static void	my_rad_sort(t_stack **stack_a, t_stack **stack_b)
 		++max_bits;
 	while (i < max_bits)
 	{
+		sort_bits(i, size, stack_a, stack_b);
+	}
+}
+
+static void	sort_bits(int i, int size, t_stack **stack_a, t_stack **stack_b)
+{
+		int	j;
+		int	num;
+		
 		j = 0;
 		while (j < size)
 		{
@@ -56,7 +64,6 @@ static void	my_rad_sort(t_stack **stack_a, t_stack **stack_b)
 		while (*stack_b)
 			push(stack_b, stack_a, "pa\n");
 		i++;
-	}
 }
 
 t_stack	**sort_it(t_stack **a, t_stack **b)
