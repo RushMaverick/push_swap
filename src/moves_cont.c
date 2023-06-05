@@ -6,19 +6,19 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 10:28:06 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/02 15:33:38 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:39:32 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <push_swap.h>
+#include <push_swap.h>
 
-void    rotate(t_stack **head, char *str) //The first element becomes the last one.
+void	rotate(t_stack **head, char *str)
 {
-    t_stack    *node;
-    t_stack    *temp;
+	t_stack	*node;
+	t_stack	*temp;
 
-    if ((*head) == NULL)
-        return ;
+	if ((*head) == NULL)
+		return ;
 	node = (*head);
 	(*head) = node->next;
 	temp = last_node(*head);
@@ -27,13 +27,13 @@ void    rotate(t_stack **head, char *str) //The first element becomes the last o
 	ft_putstr_fd(str, 1);
 }
 
-void	rev_rotate(t_stack **head, char *str) //The last element becomes the first one.
+void	rev_rotate(t_stack **head, char *str)
 {
 	t_stack	*node;
 	t_stack	*temp;
 
-    if (*head == NULL)
-        return ;
+	if (*head == NULL)
+		return ;
 	node = last_node(*head);
 	temp = next_to_last_node(*head);
 	node->next = *head;

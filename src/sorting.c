@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:54:14 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/05 13:48:27 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:39:13 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,31 @@ int	is_sorted(t_stack **head)
 	return (0);
 }
 
+static void	sort_bits(int i, int size, t_stack **stack_a, t_stack **stack_b)
+{
+	int	j;
+	int	num;
+
+	j = 0;
+	while (j < size)
+	{
+		num = (*stack_a)->index;
+		if (((num >> i) & 1) == 1)
+			rotate(stack_a, "ra\n");
+		else
+			push(stack_a, stack_b, "pb\n");
+		++j;
+	}
+	while (*stack_b)
+		push(stack_b, stack_a, "pa\n");
+}
+
 static void	my_rad_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	max_num;
 	int	max_bits;
 	int	size;
 	int	i;
-
 
 	size = (*stack_a)->amount;
 	max_num = size - 1;
@@ -43,27 +61,8 @@ static void	my_rad_sort(t_stack **stack_a, t_stack **stack_b)
 	while (i < max_bits)
 	{
 		sort_bits(i, size, stack_a, stack_b);
-	}
-}
-
-static void	sort_bits(int i, int size, t_stack **stack_a, t_stack **stack_b)
-{
-		int	j;
-		int	num;
-		
-		j = 0;
-		while (j < size)
-		{
-			num = (*stack_a)->index;
-			if (((num >> i) & 1) == 1)
-				rotate(stack_a, "ra\n");
-			else
-				push(stack_a, stack_b, "pb\n");
-			++j;
-		}
-		while (*stack_b)
-			push(stack_b, stack_a, "pa\n");
 		i++;
+	}
 }
 
 t_stack	**sort_it(t_stack **a, t_stack **b)

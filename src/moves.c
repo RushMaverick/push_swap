@@ -6,51 +6,51 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:16:25 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/02 14:52:39 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:38:43 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *last_node(t_stack *head)
+t_stack	*last_node(t_stack *head)
 {
-    t_stack *temp;
+	t_stack	*temp;
 
-    temp = head;
-    if (!temp)
-        return (NULL);
-    while (temp->next != NULL)
-        temp = temp->next;
-    return (temp);
+	temp = head;
+	if (!temp)
+		return (NULL);
+	while (temp->next != NULL)
+		temp = temp->next;
+	return (temp);
 }
 
-t_stack *next_to_last_node(t_stack *head)
+t_stack	*next_to_last_node(t_stack *head)
 {
-    t_stack *temp;
+	t_stack	*temp;
 
-    temp = head;
-    if (!temp)
-        return (NULL);
-    while (temp->next->next && temp->next->next != NULL)
-        temp = temp->next;
-    return (temp);
+	temp = head;
+	if (!temp)
+		return (NULL);
+	while (temp->next->next && temp->next->next != NULL)
+		temp = temp->next;
+	return (temp);
 }
 
-void    swap(t_stack **head, char *str)
+void	swap(t_stack **head, char *str)
 {
-    t_stack    *first_node;
-    t_stack    *second_node;
-    t_stack    *third_node;
+	t_stack	*first_node;
+	t_stack	*second_node;
+	t_stack	*third_node;
 
-    if (*head == NULL || (*head)->next == NULL)
-        return ;
-    first_node = *head;
-    second_node = (*head)->next;
-    third_node = (*head)->next->next;
-    second_node->next = first_node;
-    first_node->next = third_node;
-    *head = second_node;
-    ft_putstr_fd(str, 1);
+	if (*head == NULL || (*head)->next == NULL)
+		return ;
+	first_node = *head;
+	second_node = (*head)->next;
+	third_node = (*head)->next->next;
+	second_node->next = first_node;
+	first_node->next = third_node;
+	*head = second_node;
+	ft_putstr_fd(str, 1);
 }
 
 void	ss(t_stack *a, t_stack *b)
@@ -59,26 +59,25 @@ void	ss(t_stack *a, t_stack *b)
 	swap(&b, "sb\n");
 }
 
-void    push(t_stack **src, t_stack **dst, char *str)
+void	push(t_stack **src, t_stack **dst, char *str)
 {
-    t_stack *temp;
-    // int     first;
-    
-    if (!(*src))
-        return ;
-    temp = (*src)->next;
-    (*src)->next = NULL;
-    if (dst == NULL)
-    {
-        dst = src;
-        (*dst)->next = NULL;
-        (*src) = temp;
-    }
-    else
-    {
-        (*src)->next = (*dst);
-        (*dst) = (*src);
-        (*src) = temp;
-    }
-    ft_putstr_fd(str, 1);
+	t_stack	*temp;
+
+	if (!(*src))
+		return ;
+	temp = (*src)->next;
+	(*src)->next = NULL;
+	if (dst == NULL)
+	{
+		dst = src;
+		(*dst)->next = NULL;
+		(*src) = temp;
+	}
+	else
+	{
+		(*src)->next = (*dst);
+		(*dst) = (*src);
+		(*src) = temp;
+	}
+	ft_putstr_fd(str, 1);
 }

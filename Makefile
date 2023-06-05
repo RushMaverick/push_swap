@@ -8,9 +8,9 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 OBJ_DIR = obj
 
 INCLUDES = -Ilibft/includes -Iincludes
-CFLAGS = -Wall -Wextra -Werror -MMD -g
+CFLAGS = -Wall -Wextra -Werror -MMD
 
-SRC = push_swap.c errors.c stack_handling.c argument_check.c list_funcs.c debug.c sorting.c moves.c moves_cont.c sorts.c indexing.c
+SRC = push_swap.c errors.c stack_handling.c argument_check.c list_funcs.c sorting.c moves.c moves_cont.c sort_three.c sort_four_five.c indexing.c
 
 DEP = $(OBJ:.o=.d)
 

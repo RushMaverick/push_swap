@@ -6,13 +6,14 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 10:35:03 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/05 11:57:21 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:38:00 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static	void set_index(t_stack **temp, t_stack **head, t_stack **end, t_stack **smallest)
+static void	set_index(t_stack **temp, t_stack **head, t_stack **end,
+		t_stack **smallest)
 {
 	if ((*smallest) != NULL)
 		(*end)->index = (*smallest)->index;
@@ -25,7 +26,7 @@ static	void set_index(t_stack **temp, t_stack **head, t_stack **end, t_stack **s
 	}
 }
 
-static	void set_smallest(t_stack **top, t_stack **end, t_stack **smallest)
+static void	set_smallest(t_stack **top, t_stack **end, t_stack **smallest)
 {
 	if ((*top)->data > (*end)->data)
 	{
@@ -43,10 +44,10 @@ static	void set_smallest(t_stack **top, t_stack **end, t_stack **smallest)
 void	indexing(t_stack **head)
 {
 	int		place;
-	t_stack *end;
-	t_stack *temp;
-	t_stack *smallest;
-	t_stack *count;
+	t_stack	*end;
+	t_stack	*temp;
+	t_stack	*smallest;
+	t_stack	*count;
 
 	smallest = NULL;
 	end = last_node(*head);

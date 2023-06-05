@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/05 10:21:27 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 16:43:10 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,16 +34,17 @@ void				freeing_array(char **nbrs);
 void				freeing_stack(t_stack **a);
 t_stack				**sort_it(t_stack **a, t_stack **b);
 void				mini_sort(t_stack **head_a, t_stack **head_b);
+void				sort_three(t_stack **head_a);
+void				sort_four_five(t_stack **head_a, t_stack **head_b);
 void				swap(t_stack **head, char *str);
 void				ss(t_stack *a, t_stack *b);
 void				rotate(t_stack **head, char *str);
 void				rev_rotate(t_stack **head, char *str);
 void				rot_both(t_stack **a_stack, t_stack **b_stack);
-void    			push(t_stack **src, t_stack **dst, char *str);
+void				push(t_stack **src, t_stack **dst, char *str);
 void				indexing(t_stack **head);
 t_stack				*last_node(t_stack *head);
-t_stack 			*next_to_last_node(t_stack *head);
+t_stack				*next_to_last_node(t_stack *head);
 int					is_sorted(t_stack **head);
-void				print_list(t_stack *node); //DEBUG
 
 #endif
