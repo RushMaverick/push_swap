@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/11 13:52:36 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/02 13:38:53 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 10:21:27 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void    			push(t_stack **src, t_stack **dst, char *str);
 void				indexing(t_stack **head);
 t_stack				*last_node(t_stack *head);
 t_stack 			*next_to_last_node(t_stack *head);
+int					is_sorted(t_stack **head);
 void				print_list(t_stack *node); //DEBUG
 
 #endif

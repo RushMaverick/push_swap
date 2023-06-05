@@ -6,19 +6,62 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 09:54:14 by rrask             #+#    #+#             */
-/*   Updated: 2023/06/02 15:38:19 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/05 11:16:31 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	is_sorted(t_stack **a)
+int	is_sorted(t_stack **head)
 {
-	while ((*a)->next != NULL)
+	t_stack	*temp;
+
+	temp = *head;
+	while (temp->next != NULL)
 	{
-		if ((*a)->data < (*a)->next->data && (*a)->next != 0)
-			ft_printf("Sorted\n");
-		a = &(*a)->next;
+		if (temp->index > temp->next->index)
+			return (1);
+		temp = temp->next;
+	}
+	return (0);
+}
+
+static void	my_rad_sort(t_stack **stack_a, t_stack **stack_b)
+{
+	int	max_num;
+	int	num;
+	int	max_bits;
+	int	size;
+	int	i;
+	int	j;
+
+	size = (*stack_a)->amount;
+	max_num = size - 1;
+	max_bits = 0;
+	i = 0;
+	while ((max_num >> max_bits) != 0)
+		++max_bits;
+	while (i < max_bits)
+	{
+		j = 0;
+		while (j < size)
+		{
+			num = (*stack_a)->index;
+			if (((num >> i) & 1) == 1)
+				rotate(stack_a, "ra\n");
+			else
+				push(stack_a, stack_b, "pb\n");
+			++j;
+		}
+		while (*stack_b)
+		{
+			// num = (*stack_b)->index;
+			// if (((num >> i) & 1) == 1)
+			push(stack_b, stack_a, "pa\n");
+			// else
+			// rotate(stack_b, "rb\n");
+		}
+		i++;
 	}
 }
 
@@ -32,7 +75,7 @@ t_stack	**sort_it(t_stack **a, t_stack **b)
 	}
 	if ((*a)->amount == 3 || (*a)->amount == 4 || (*a)->amount == 5)
 		mini_sort(a, b);
-	else if ((*a)->amount > 3)
-		ft_printf("Might be good to use radix here.");
+	else if ((*a)->amount > 5)
+		my_rad_sort(a, b);
 	return (a);
 }
