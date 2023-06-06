@@ -6,7 +6,7 @@
 /*   By: rrask <rrask@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 12:11:08 by rrask             #+#    #+#             */
-/*   Updated: 2023/05/27 07:53:53 by rrask            ###   ########.fr       */
+/*   Updated: 2023/06/06 08:47:32 by rrask            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**arg_string_validity(char *arg)
 	char	**nbrs;
 
 	nbrs = ft_split(arg, ' ');
-	if (!nbrs[0])
+	if (!nbrs)
 	{
 		freeing_array(nbrs);
 		return (0);
